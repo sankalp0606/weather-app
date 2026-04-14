@@ -1,0 +1,173 @@
+/* *{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,body{
+  width: 100%;
+  height: 100%;
+}
+.app{
+  background-image: url("https://www.google.com/search?q=weather+images&sxsrf=APq-WBv7S_KwkPI1djwLCbfm7Oy6hSUKvQ:1644267571541&tbm=isch&source=iu&ictx=1&vet=1&fir=hCAQ98VGE9FDQM%252CVI-qqMG50jTsqM%252C_%253B6AyNZgUJDu1vjM%252COrJOMAS9QQwwMM%252C_%253BuE5X1qT1OH5yEM%252CS4hF4obo_vp3eM%252C_%253BEGe_YsYcbDsEIM%252CBj3jpxgakM9sTM%252C_%253BuLm7_E3tYqwtBM%252ChIO9GEpO6U-bmM%252C_%253Bf8EPjQEZdIkE3M%252CVI-qqMG50jTsqM%252C_%253BxDWkOmf8j5-JbM%252C7cnBP7YE4al6WM%252C_%253Bb49tQPQL-2gMrM%252CS4hF4obo_vp3eM%252C_%253BBaK1N9x1b4QCZM%252C3ZwohAz6XFSktM%252C_%253BDWLD3vgRlTiilM%252Ctc2hD3bZqP3L5M%252C_%253Bb2l0FvjzBqfkKM%252C1ok82qs8U1ATPM%252C_%253Bx8DIOXP4ZnsbeM%252CS4hF4obo_vp3eM%252C_%253BPchohc-Joeo6LM%252CVI-qqMG50jTsqM%252C_%253BAGg31P8njE9F1M%252CT6Ki3D33ukdrzM%252C_&usg=AI4_-kTrPjjAGQFTlMRSa2bFcJFJCYd_JA&sa=X&ved=2ahUKEwj3lpGEvu71AhUoyIsBHfB9DZQQ9QF6BAgOEAE#imgrc=xDWkOmf8j5-JbM");
+  background-size: cover;
+  background-position: bottom;
+  transition: 0.4 ease-out;
+}
+main{
+ min-height: 100vh;
+
+} */
+/* .main{
+  width: 100wh;
+  height: 100vh;
+  background-color: palevioletred;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+/* input{
+  width: 20%;
+  height: 40px;
+  border: 2px solid black;
+  padding: 10px;
+} */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.app {
+  background-image: url("https://images.unsplash.com/photo-1457269449834-928af64c684d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8c25vd3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60");
+  background-size: cover;
+  background-position: bottom;
+  transition: 0.4 ease;
+ 
+ 
+}
+
+.app.warm {
+  background-image: url('https://images.unsplash.com/photo-1473496169904-658ba7c44d8a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80');
+}
+
+main {
+  min-height: 100vh;
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.75));
+  padding: 40px;
+}
+
+.search-box {
+  width: 100%;
+  margin: 0 0 75px;
+
+}
+
+.searchBox .search-bar {
+  display: block;
+  width: 100%;
+  padding: 15px;
+  appearance: none;
+  background: none;
+  border: none;
+  outline: none;
+
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 0px 0px 16px 16px;
+  margin-top: -25px;
+
+  box-shadow: 0px 5px rgba(0, 0, 0, 0.2);
+  
+  color: #313131;
+  font-size: 20px;
+
+  transition: 0.4s ease;
+}
+.searchingbox{
+
+  width: 100%;
+  padding: 10px;
+  
+}
+.list{
+  width: 100%;
+  height: 30px;
+  background-color:rgba(255, 255, 255, 0.5) ;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 2px;
+  display: flex;
+  align-items: center;
+}
+.search-box .search-bar:focus {
+  background-color: rgba(255, 255, 255, 0.75);
+}
+
+.location-box .location {
+  color: #FFF;
+  font-size: 32px;
+  font-weight: 500;
+  text-align: center;
+  text-shadow: 3px 3px rgba(50, 50, 70, 0.5);
+}
+
+.location-box .date {
+  color: #FFF;
+  font-size: 20px;
+  font-weight: 300;
+  font-style: italic;
+  text-align: center;
+  text-shadow: 2px 2px rgba(50, 50, 70, 0.5);
+}
+
+.weather-box {
+  text-align: center;
+}
+
+.weather-box .temp {
+  position: relative;
+  display: inline-block;
+  margin: 30px auto;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+
+  padding: 15px 25px;
+
+  color: #FFF;
+  font-size: 102px;
+  font-weight: 900;
+
+  text-shadow: 3px 6px rgba(50, 50, 70, 0.5);
+  text-align: center;
+  box-shadow: 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+.weather-box .weather {
+  color: #FFF;
+  font-size: 48px;
+  font-weight: 700;
+  text-shadow: 3px 3px rgba(50, 50, 70, 0.5);
+}
+
+
+/* 
+            { data && data.map((elem,i)=>{
+                      return   <div className="showbox">
+                   
+                    <div className="location-box">
+                             <div className="location">{elem}</div><br></br>
+                            <div className="date">{DateCurrent(new Date().toDateString())}</div>
+                   </div>
+                    <div className="weather-box">
+                        <div className="temp">
+                              23°c
+                          </div>
+                   <div className="weather">sunny</div>
+                   </div>
+                   </div>
+              })
+
+            } */
