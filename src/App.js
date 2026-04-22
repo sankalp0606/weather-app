@@ -25,7 +25,7 @@ const App = () => {
     .then(dataa => {
       setdata(dataa);
      
-      setcitynames('')
+      setcitynames([])
         
       
     });
