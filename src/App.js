@@ -1,14 +1,14 @@
 import React, { useEffect, useState,useRef } from 'react';
 import "./App.css"
-import Show from './Show';
+//import Show from './Show';
 import Cities from "./Cities.json"
-import clearsky from "./clear-sky.png"
+//import clearsky from "./clear-sky.png"
 
 
 const App = () => {
-  const [text,settext]= useState()
+  //const [text,settext]= useState()
   const ref1 = useRef()
-  const [city, setcity] = useState(Cities);
+  //const [city, setcity] = useState(Cities);
  
   const [citynames,setcitynames]= useState()
   
@@ -104,7 +104,7 @@ const App = () => {
                       {data.weather[0].description === "mist" && <img src='https://cdn-icons.flaticon.com/png/128/4138/premium/4138078.png?token=exp=1644770408~hmac=b7a02e919c4bac109a87049f407d4be2'/>}   
                       {data.weather[0].description === "few clouds" && <img src='https://cdn-icons-png.flaticon.com/128/414/414927.png' />}
                       {data.weather[0].description === "overcast clouds" && <img src='https://cdn-icons-png.flaticon.com/128/414/414927.png' />}                              
-                      {data.weather[0].description === "broken cloud" && <img src='' />}                              
+                      {data.weather[0].description === "broken cloud" && <img src={icon} alt="weather icon"/>}                              
                 </div>
                 </div>:""}
           </div>
