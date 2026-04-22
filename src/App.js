@@ -6,11 +6,11 @@ import Cities from "./Cities.json"
 
 
 const App = () => {
-  //const [text,settext]= useState()
+  const [text,setText]= useState("")
   const ref1 = useRef()
-  //const [city, setcity] = useState(Cities);
+  const [city, setCity] = useState(Cities);
  
-  const [citynames,setcitynames]= useState()
+  const [citynames,setcitynames]= useState([])
   
   const [data,setdata]=useState({})
    
@@ -39,7 +39,7 @@ const App = () => {
 
   const setchange=(e)=>{
     const texte=e.target.value
-    settext({[e.target.name]:e.target.value})
+    setText(e.target.value)
 
     const cityname=city.filter((d,i)=>{
        return d.name.toLowerCase().includes(texte.toLowerCase())
@@ -98,13 +98,13 @@ const App = () => {
                          {data.main.temp}°c</div>:""}
                 {data.main? <div className="weather">{data.weather[0].description}
                 <div>
-                      {data.weather[0].description === "clear sky" && <img src='https://cdn-icons-png.flaticon.com/128/984/984622.png' /> }   
-                      {data.weather[0].description === "smoke" && <img src='https://cdn-icons.flaticon.com/png/128/4414/premium/4414055.png?token=exp=1644770630~hmac=c3908d2d6e30d048087c0887a157c34a'/>}   
-                      {data.weather[0].description === "haze" && <img src='https://cdn-icons.flaticon.com/png/128/3104/premium/3104495.png?token=exp=1644769101~hmac=619dbf165ea72e1810477ba1b70c81a7'/>}   
-                      {data.weather[0].description === "mist" && <img src='https://cdn-icons.flaticon.com/png/128/4138/premium/4138078.png?token=exp=1644770408~hmac=b7a02e919c4bac109a87049f407d4be2'/>}   
-                      {data.weather[0].description === "few clouds" && <img src='https://cdn-icons-png.flaticon.com/128/414/414927.png' />}
-                      {data.weather[0].description === "overcast clouds" && <img src='https://cdn-icons-png.flaticon.com/128/414/414927.png' />}                              
-                      {data.weather[0].description === "broken cloud" && <img src={icon} alt="weather icon"/>}                              
+                      {data.weather[0].description === "clear sky" && <img src='https://cdn-icons-png.flaticon.com/128/984/984622.png' alt="weather icon"/> }   
+                      {data.weather[0].description === "smoke" && <img src='https://cdn-icons.flaticon.com/png/128/4414/premium/4414055.png?token=exp=1644770630~hmac=c3908d2d6e30d048087c0887a157c34a' alt="weather icon"/>}   
+                      {data.weather[0].description === "haze" && <img src='https://cdn-icons.flaticon.com/png/128/3104/premium/3104495.png?token=exp=1644769101~hmac=619dbf165ea72e1810477ba1b70c81a7' alt="weather icon"/>}   
+                      {data.weather[0].description === "mist" && <img src='https://cdn-icons.flaticon.com/png/128/4138/premium/4138078.png?token=exp=1644770408~hmac=b7a02e919c4bac109a87049f407d4be2' alt="weather icon"/>}   
+                      {data.weather[0].description === "few clouds" && <img src='https://cdn-icons-png.flaticon.com/128/414/414927.png' alt="weather icon"/>}
+                      {data.weather[0].description === "overcast clouds" && <img src='https://cdn-icons-png.flaticon.com/128/414/414927.png'alt="weather icon" />}                              
+                      {data.weather[0].description === "broken cloud" && <img src='https://cdn-icons-png.flaticon.com/128/414/414927.png' alt="weather icon"/>}                             
                 </div>
                 </div>:""}
           </div>
