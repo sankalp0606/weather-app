@@ -8,27 +8,38 @@ import Cities from "./Cities.json"
 const App = () => {
   
   const ref1 = useRef()
+  const debounceRef = useRef()
   const [city] = useState(Cities);
  
   const [citynames,setcitynames]= useState([])
   
   const [data,setdata]=useState({})
+  const [loading, setLoading] = useState(false)
+  const [dark, setDark] = useState(false)
    
   
   
-  const searchcity=(e="bhopal")=>{
-     
-    const API_key="12c33bb2b303e46d911ec4e7d49c338d"
-    const base_url=`https://api.openweathermap.org/data/2.5/weather?q=${e}&units=metric&APPID=${API_key}`
-    fetch(base_url)
+  const searchcity = (e = "bhopal") => {
+  setLoading(true)
+
+  const API_key = "12c33bb2b303e46d911ec4e7d49c338d"
+  const base_url = `https://api.openweathermap.org/data/2.5/weather?q=${e}&units=metric&APPID=${API_key}`
+
+  fetch(base_url)
     .then(res => res.json())
-    .then(dataa => {
-      setdata(dataa);
-     
-      setcitynames([])
-        
-      
-    });
+      .then(dataa => {
+            if (dataa.cod === "404") {
+         alert("City not found ❌")
+         setLoading(false)
+         return
+  }
+
+  setdata(dataa)
+  setcitynames([])
+  setLoading(false)
+})
+    .catch(() => setLoading(false))
+
   
   }
   useEffect(() => {
@@ -37,22 +48,24 @@ const App = () => {
   
  
 
-  const setchange=(e)=>{
-    const texte=e.target.value
-    
+ const setchange = (e) => {
+  const texte = e.target.value
 
-    const cityname=city.filter((d,i)=>{
-       return d.name.toLowerCase().includes(texte.toLowerCase())
+  // clear previous timer
+  clearTimeout(debounceRef.current)
+
+  debounceRef.current = setTimeout(() => {
+    const cityname = city.filter((d) => {
+      return d.name.toLowerCase().includes(texte.toLowerCase())
     })
-   
+
     if (texte === "") {
-      setcitynames([]);
+      setcitynames([])
     } else {
-      setcitynames(cityname);
+      setcitynames(cityname)
     }
-    
-      
-  }
+  }, 500) // 500ms delay
+}
   
   const DateCurrent=(d)=>{
    return `${d}`  }
@@ -65,17 +78,27 @@ const App = () => {
   
   
 
-  return <div className={(typeof data.main != "undefined")?((data.main.temp>20)?"app warm":"app"):"app"}>
+  return <div className={dark ? "app dark" : "app"}>
     
           <main>
+            <button onClick={() => setDark(!dark)}>
+               {dark ? "Light Mode" : "Dark Mode"}
+            </button>
+           {loading && <div className="loader"></div>}
             <div className="searchBox">
-                <input
-                   placeholder='search...'
-                   className='search-bar'
-                   onChange={setchange} 
-                   ref={ref1}
-             
-                /> 
+               <input
+                     placeholder='search...'
+                     className='search-bar'
+                     onChange={setchange}
+                     onKeyDown={(e) => {
+                       if (e.key === "Enter") {
+                          searchcity(e.target.value)
+                               setcitynames([])
+                        }
+                       }}
+                       ref={ref1}
+                />
+
             </div><br></br> <br></br>
               { citynames &&   <div className='searchingbox'>
                        {citynames.map((d,i)=>{
