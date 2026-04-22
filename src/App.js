@@ -6,9 +6,9 @@ import Cities from "./Cities.json"
 
 
 const App = () => {
-  const [text,setText]= useState("")
+  //const [text,setText]= useState("")
   const ref1 = useRef()
-  const [city, setCity] = useState(Cities);
+  const [city] = useState(Cities);
  
   const [citynames,setcitynames]= useState([])
   
