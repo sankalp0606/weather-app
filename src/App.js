@@ -6,7 +6,7 @@ import Cities from "./Cities.json"
 
 
 const App = () => {
-  const [text, setText] = useState("")
+  
   const ref1 = useRef()
   const [city] = useState(Cities);
  
@@ -39,7 +39,7 @@ const App = () => {
 
   const setchange=(e)=>{
     const texte=e.target.value
-    setText(e.target.value)
+    
 
     const cityname=city.filter((d,i)=>{
        return d.name.toLowerCase().includes(texte.toLowerCase())
